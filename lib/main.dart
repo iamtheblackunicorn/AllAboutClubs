@@ -2,7 +2,6 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -12,8 +11,9 @@ void main() {
   runApp(
     MaterialApp(
       title: 'All About Clubs',
-      home: AllAboutClubs()
+      home: AllAboutClubs(),
       localizationsDelegates: [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -25,16 +25,6 @@ void main() {
     )
   );
 }
-
-// dynamic strings
-String overViewLabel = AppLocalizations.of(context).overViewLabel;
-String updateDatabaseString = AppLocalizations.of(context).updateDatabaseString;
-String endAppMessage = AppLocalizations.of(context).endAppMessage;
-String detailViewMessage = AppLocalizations.of(context).detailViewMessage;
-String worthTemplateText = AppLocalizations.of(context).worthTemplateText;
-String currencyLabel = AppLocalizations.of(context).currencyLabel;
-String achievedMessage = AppLocalizations.of(context).achievedMessage;
-String titleMessage = AppLocalizations.of(context).titleMessage;
 
 // API URL
 String fileUrl = 'https://public.allaboutapps.at/hiring/clubs.json';
@@ -92,7 +82,7 @@ class AllAboutClubs extends StatelessWidget {
           SizedBox(height: titleSpacing),
           new RaisedButton(
               color: accentColor,
-              child: Text(overViewLabel,
+              child: Text(AppLocalizations.of(context).overViewLabel,
                   style: TextStyle(
                     color: defaultBackGroundColor,
                     fontSize: defaultFontSize,
@@ -108,7 +98,7 @@ class AllAboutClubs extends StatelessWidget {
           SizedBox(height: defaultComponentSpacing),
           new RaisedButton(
               color: accentColor,
-              child: Text(updateDatabaseString,
+              child: Text(AppLocalizations.of(context).updateDatabaseString,
                   style: TextStyle(
                     color: defaultBackGroundColor,
                     fontSize: defaultFontSize,
@@ -125,7 +115,7 @@ class AllAboutClubs extends StatelessWidget {
           SizedBox(height: defaultComponentSpacing),
           new RaisedButton(
               color: accentColor,
-              child: Text(endAppMessage,
+              child: Text(AppLocalizations.of(context).endAppMessage,
                   style: TextStyle(
                     color: defaultBackGroundColor,
                     fontSize: defaultFontSize,
@@ -161,7 +151,7 @@ class ClubOverviewState extends State<ClubOverview> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               new Text(
-                overViewLabel,
+                AppLocalizations.of(context).overViewLabel,
                 style: TextStyle(
                   color: defaultBackGroundColor, fontSize: defaultFontSize
                 )
@@ -196,8 +186,8 @@ class ClubOverviewState extends State<ClubOverview> {
                   children: <Widget>[
                     new Padding(
                       padding: EdgeInsets.all(cardPadding),
-                      child: new Image.network(
-                        'https://public.allaboutapps.at/hiring/images/ajax.png';
+                      child: new Image(
+                        image: AssetImage('assets/images/ajax.png'),
                         width: 125
                       )
                     ),
@@ -238,7 +228,7 @@ class ClubOverviewState extends State<ClubOverview> {
                           margin: EdgeInsets.all(choiceButtonMargin),
                           child: new RaisedButton(
                               color: accentColor,
-                              child: Text(detailViewMessage,
+                              child: Text(AppLocalizations.of(context).detailViewMessage,
                                   style: TextStyle(
                                     color: defaultBackGroundColor,
                                     fontSize: defaultFontSize,
@@ -265,6 +255,10 @@ class ClubOverviewState extends State<ClubOverview> {
 class ClubDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String worthTemplateText = AppLocalizations.of(context).worthTemplateText;
+    String currencyLabel = AppLocalizations.of(context).currencyLabel;
+    String achievedMessage = AppLocalizations.of(context).achievedMessage;
+    String titleMessage = AppLocalizations.of(context).titleMessage;
     return Scaffold(
         backgroundColor: defaultBackGroundColor,
         appBar: AppBar(
@@ -278,8 +272,8 @@ class ClubDetailView extends StatelessWidget {
 
               new Stack(
                 children: <Widget>[
-                  Image.network(
-                    'https://public.allaboutapps.at/hiring/images/ajax.png',
+                  Image(
+                    image: AssetImage('assets/images/ajax.png'),
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -292,9 +286,9 @@ class ClubDetailView extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.all(cardPadding),
                         child: Text(
-                          'Club Name',
+                          'Ajax Amsterdam',
                           style: TextStyle(
-                            color: defaultBackGroundColor,
+                            color: tertiaryAccentColor,
                             fontWeight: FontWeight.bold,
                             fontSize: clubNameheading
                           ),

@@ -1,4 +1,4 @@
-name: Sequo
+name: allaboutclubs
 description: A fun game to decode quotes by famous people!
 publish_to: 'none'
 version: 1.0.0+1
@@ -8,11 +8,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  dio: any
+  #dio: any
   path_provider: any
-  flutter_localizations: # Add this line
+  flutter_localizations:
     sdk: flutter
-    intl: ^0.16.1
+  intl: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -21,3 +21,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/logo.png
+    - assets/images/ajax.png
