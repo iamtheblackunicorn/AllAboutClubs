@@ -8,22 +8,17 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 // Main entry point for the App.
 void main() {
-  runApp(
-    MaterialApp(
-      title: 'All About Clubs',
-      home: AllAboutClubs(),
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('de', ''),
-        const Locale('en', '')
-      ],
-    )
-  );
+  runApp(MaterialApp(
+    title: 'All About Clubs',
+    home: AllAboutClubs(),
+    localizationsDelegates: [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    supportedLocales: [const Locale('de', ''), const Locale('en', '')],
+  ));
 }
 
 // API URL
@@ -57,7 +52,7 @@ downloadFile(String url, String fileName) async {
 }
 
 // Return a map of the JSON API.
-Map<String,dynamic> getFileMap(String filePath) {
+Map<String, dynamic> getFileMap(String filePath) {
   var fileContents = new File(filePath).readAsStringSync();
   var jsonResult = json.decode(fileContents);
   return jsonResult;
@@ -75,10 +70,7 @@ class AllAboutClubs extends StatelessWidget {
           SizedBox(height: titleImageSpacing),
           new Text('All About Clubs',
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: accentColor,
-                fontSize: titleFontSize
-          )),
+              style: TextStyle(color: accentColor, fontSize: titleFontSize)),
           SizedBox(height: titleSpacing),
           new RaisedButton(
               color: accentColor,
@@ -93,8 +85,7 @@ class AllAboutClubs extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => ClubOverview()),
                 );
-              }
-          ),
+              }),
           SizedBox(height: defaultComponentSpacing),
           new RaisedButton(
               color: accentColor,
@@ -110,8 +101,7 @@ class AllAboutClubs extends StatelessWidget {
                 var filePath = '$tempDirPath/$fileName';
                 downloadFile(fileUrl, fileName);
                 print(getFileMap(filePath));
-              }
-          ),
+              }),
           SizedBox(height: defaultComponentSpacing),
           new RaisedButton(
               color: accentColor,
@@ -125,13 +115,8 @@ class AllAboutClubs extends StatelessWidget {
                 try {
                   exit(0);
                 } catch (e) {}
-              }
-          )
-
-
-        ]
-      )
-    ));
+              })
+        ])));
   }
 }
 
@@ -140,6 +125,7 @@ class ClubOverview extends StatefulWidget {
   @override
   ClubOverviewState createState() => new ClubOverviewState();
 }
+
 class ClubOverviewState extends State<ClubOverview> {
   @override
   Widget build(BuildContext context) {
@@ -148,32 +134,27 @@ class ClubOverviewState extends State<ClubOverview> {
       backgroundColor: defaultBackGroundColor,
       appBar: AppBar(
           title: new Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              new Text(
-                AppLocalizations.of(context).overViewLabel,
-                style: TextStyle(
-                  color: defaultBackGroundColor, fontSize: defaultFontSize
-                )
-              ),
-              SizedBox(width: 164),
-
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    // change sorting order
-                  });
-                },
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                new Text(AppLocalizations.of(context).overViewLabel,
+                    style: TextStyle(
+                        color: defaultBackGroundColor,
+                        fontSize: defaultFontSize)),
+                SizedBox(width: 164),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      // change sorting order
+                    });
+                  },
                   icon: Icon(
                     Icons.sort,
                     color: defaultBackGroundColor,
                   ),
                   iconSize: 20.0,
-              ),
-            ]
-          ),
-          backgroundColor: accentColor
-      ),
+                ),
+              ]),
+          backgroundColor: accentColor),
       body: new ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
@@ -182,45 +163,39 @@ class ClubOverviewState extends State<ClubOverview> {
                   borderRadius: BorderRadius.circular(10.0)),
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                 new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    new Padding(
-                      padding: EdgeInsets.all(cardPadding),
-                      child: new Image(
-                        image: AssetImage('assets/images/ajax.png'),
-                        width: 125
-                      )
-                    ),
-                    new Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        new Padding(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      new Padding(
                           padding: EdgeInsets.all(cardPadding),
-                          child: Text(
-                            'Ajax',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: tertiaryAccentColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: listFontheadingSize
+                          child: new Image(
+                              image: AssetImage('assets/images/ajax.png'),
+                              width: 125)),
+                      new Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            new Padding(
+                              padding: EdgeInsets.all(cardPadding),
+                              child: Text(
+                                'Ajax',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: tertiaryAccentColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: listFontheadingSize),
+                              ),
                             ),
-                          ),
-                        ),
-                        new Padding(
-                          padding: EdgeInsets.all(cardPadding),
-                          child: Text(
-                            'Niederlande',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: tertiaryAccentColor,
-                              fontSize: defaultFontSize
-                            ),
-                          ),
-                        )
-                      ]
-                    )
-                  ]
-                ),
+                            new Padding(
+                              padding: EdgeInsets.all(cardPadding),
+                              child: Text(
+                                'Niederlande',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: tertiaryAccentColor,
+                                    fontSize: defaultFontSize),
+                              ),
+                            )
+                          ])
+                    ]),
                 new Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -228,7 +203,9 @@ class ClubOverviewState extends State<ClubOverview> {
                           margin: EdgeInsets.all(choiceButtonMargin),
                           child: new RaisedButton(
                               color: accentColor,
-                              child: Text(AppLocalizations.of(context).detailViewMessage,
+                              child: Text(
+                                  AppLocalizations.of(context)
+                                      .detailViewMessage,
                                   style: TextStyle(
                                     color: defaultBackGroundColor,
                                     fontSize: defaultFontSize,
@@ -237,14 +214,13 @@ class ClubOverviewState extends State<ClubOverview> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => ClubDetailView()),
+                                  MaterialPageRoute(
+                                      builder: (context) => ClubDetailView()),
                                 );
                               })),
                       SizedBox(height: choiceButtonMargin)
                     ])
-                  ]
-                )
-              );
+              ]));
         },
       ),
     );
@@ -267,56 +243,43 @@ class ClubDetailView extends StatelessWidget {
                     color: defaultBackGroundColor, fontSize: defaultFontSize)),
             backgroundColor: accentColor),
         body: Center(
-          child: Column(
-            children: <Widget> [
-
-              new Stack(
-                children: <Widget>[
-                  Image(
-                    image: AssetImage('assets/images/ajax.png'),
-                    height: 250,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  new Positioned(
-                    bottom: 0.2,
-                    left: 0.2,
-                    child: Align(
-                      alignment: Alignment(-0.8,0.8),
-                      child: Padding(
+            child: Column(children: <Widget>[
+          new Stack(children: <Widget>[
+            Image(
+              image: AssetImage('assets/images/ajax.png'),
+              height: 250,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            new Positioned(
+                bottom: 0.2,
+                left: 0.2,
+                child: Align(
+                    alignment: Alignment(-0.8, 0.8),
+                    child: Padding(
                         padding: EdgeInsets.all(cardPadding),
                         child: Text(
                           'Ajax Amsterdam',
                           style: TextStyle(
-                            color: tertiaryAccentColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: clubNameheading
-                          ),
-                        )
-                      )
-                    )
-                  )
-                ]
-              ),
-              new Padding(
-                padding: EdgeInsets.all(cardPadding),
-                child: new Column (
+                              color: tertiaryAccentColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: clubNameheading),
+                        ))))
+          ]),
+          new Padding(
+              padding: EdgeInsets.all(cardPadding),
+              child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     new Text('$worthTemplateText 442 $currencyLabel',
-                      style: TextStyle(
-                        color: tertiaryAccentColor, fontSize: defaultFontSize)
-                    ),
+                        style: TextStyle(
+                            color: tertiaryAccentColor,
+                            fontSize: defaultFontSize)),
                     new Text('Ajax Amsterdam $achievedMessage 4 $titleMessage',
-                      style: TextStyle(
-                        color: tertiaryAccentColor, fontSize: defaultFontSize)
-                    )
-                  ]
-                )
-              ),
-            ]
-          )
-        )
-      );
+                        style: TextStyle(
+                            color: tertiaryAccentColor,
+                            fontSize: defaultFontSize))
+                  ])),
+        ])));
   }
 }
