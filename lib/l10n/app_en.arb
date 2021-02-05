@@ -4,10 +4,8 @@
   "endAppMessage": "Exit App",
   "detailViewMessage": "Detailview",
   "worthTemplateText": "The club has a net worth of",
-  "currencyLabel": "million Euros",
+  "currencyLabel": "million Euros.",
   "achievedMessage": "has been able to achieve",
-  "titleMessage": "European titles.",
-  "@titleMessage": {
-    "description": "Templatetext für das Ende des Satzes."
+  "titleMessage": "European titles."
   }
 }
