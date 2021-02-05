@@ -1,0 +1,52 @@
+{
+  "overViewLabel": "Club Uebersicht",
+  "@overViewLabel": {
+    "description": "Name des Uebersichtknopfs."
+  }
+}
+{
+  "updateDatabaseString": "Datenbank aktualisieren",
+  "@updateDatabaseString": {
+    "description": "Name des Aktualisierungsknopfs."
+  }
+}
+{
+  "endAppMessage": "App beenden",
+  "@endAppMessage": {
+    "description": "Name des Endungsknopfs."
+  }
+}
+
+{
+  "detailViewMessage": "Detailuebersicht",
+  "@detailViewMessage": {
+    "description": "Name des Detailuebersichtsknopfs."
+  }
+}
+
+{
+  "worthTemplateText": "Der Club hat einen Wert von",
+  "@worthTemplateText": {
+    "description": "Templatetext für den Wert."
+  }
+}
+
+{
+  "currencyLabel": "Euro",
+  "@currencyLabel": {
+    "description": "Waehrungsname"
+  }
+}
+
+{
+  "achievedMessage": "konnte bislang",
+  "@achievedMessage": {
+    "description": "Templatetext für das Verb des Satzes."
+  }
+}
+{
+  "titleMessage": "Siege auf europäischer Ebene erreichen.",
+  "@titleMessage": {
+    "description": "Templatetext für das Ende des Satzes."
+  }
+}
