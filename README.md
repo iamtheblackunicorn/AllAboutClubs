@@ -4,7 +4,7 @@
 
 *All About Clubs* is an app to list football clubs and their respective net worth and European titles.
 
-## BUILDING :hammer:
+## BUILDING
 
 - Certificates need to be placed into `android/app` in the form of a file called `key.jks`.
 - The password of `key.jks` needs to be filled out  in `android/app/key.properties`.
