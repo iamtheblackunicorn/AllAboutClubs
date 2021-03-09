@@ -1,4 +1,4 @@
-package com.iamtheblackunicorn.allaboutclubs
+package com.blackunicorn.allaboutclubs
 
 import io.flutter.embedding.android.FlutterActivity
 

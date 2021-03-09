@@ -1,5 +1,5 @@
 name: allaboutclubs
-description: A fun game to decode quotes by famous people!
+description: An app for displaying info about football clubs!
 publish_to: 'none'
 version: 1.0.0+1
 environment:
@@ -7,9 +7,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.0
-  dio: any
-  path_provider: any
+  cupertino_icons: ^1.0.2
+  dio: ^3.0.10
+  path_provider: ^2.0.1
+  url_launcher: ^6.0.2
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -19,6 +20,10 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
-  assets:
-    - assets/images/logo.png
-    - assets/images/ajax.png
+  fonts:
+    - family: Ostrich
+      fonts:
+        - asset: assets/fonts/Ostrich.ttf
+    - family: Lobster
+      fonts:
+        - asset: assets/fonts/Lobster.ttf
