@@ -46,7 +46,7 @@ class PostDetailViewState extends State<PostDetailView> {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: accentColor,
+          color: mainColor,
         ),
         title: new Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -55,7 +55,7 @@ class PostDetailViewState extends State<PostDetailView> {
               '$clubName',
               style: TextStyle(
                 color: mainColor,
-                fontSize: stdFontSize,
+                fontSize: secondaryHeadingFontSize,
                 fontFamily: defaultFont
               ),
             ),

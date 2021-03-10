@@ -41,14 +41,14 @@ class PostOverviewState extends State<PostOverview> {
             new Text(
               AppLocalizations.of(context).postOverViewScreen,
               style: TextStyle(
-                color: accentColor,
-                fontSize: stdFontSize,
+                color: mainColor,
+                fontSize: secondaryHeadingFontSize,
                 fontFamily: defaultFont
               ),
             ),
           ]
         ),
-        backgroundColor: mainColor
+        backgroundColor: accentColor
       ),
       backgroundColor: mainColor,
       body:new ListView.builder(
@@ -88,7 +88,7 @@ class PostOverviewState extends State<PostOverview> {
                             '$clubName',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: accentColor,
+                              color: tertiaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
@@ -101,7 +101,7 @@ class PostOverviewState extends State<PostOverview> {
                             '$clubCountry',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: accentColor,
+                              color: tertiaryColor,
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
                             ),
@@ -113,7 +113,7 @@ class PostOverviewState extends State<PostOverview> {
                             '$netWorth $worthLabel',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: accentColor,
+                              color: tertiaryColor,
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
                             ),

@@ -20,9 +20,9 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(stdPadding),
                 child: Image(
-                  image: AssetImage('graphics/background.png'),
-                  width: 100,
-                  height: 100
+                  image: AssetImage('assets/images/logo.png'),
+                  width: 250,
+                  height: 250
                 )
               ),
               Padding(
@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                 child: new Text(
                   '$postsLabel',
                   style: new TextStyle(
-                    fontSize: stdFontSize,
+                    fontSize: secondaryHeadingFontSize,
                     fontFamily: defaultFont,
                     color: mainColor
                   )
@@ -62,7 +62,7 @@ class HomeScreen extends StatelessWidget {
                 child: new Text(
                   '$infoLabel',
                   style: new TextStyle(
-                    fontSize: stdFontSize,
+                    fontSize: secondaryHeadingFontSize,
                     fontFamily: defaultFont,
                     color: mainColor
                   )

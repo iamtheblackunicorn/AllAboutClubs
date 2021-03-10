@@ -11,8 +11,9 @@ Color accentColor = Color(0xFF01C13B);
 Color mainColor = Color(0xFFFFFFFF);
 Color tertiaryColor = Color(0xFF000000);
 double headingFontSize = 40;
+double secondaryHeadingFontSize = 22;
 double stdPadding = 7;
-double stdFontSize = 20;
+double stdFontSize = 14;
 double stdRounding = 25;
 double headingSpacing = 50;
 double stdSpacing = 20;
@@ -25,4 +26,4 @@ List<dynamic> defaultMap = [
     'Could not fetch the API.',
     'There was an error fetching the API!',
     'https://blckunicorn.art/assets/images/logo/logo.svg'
-  ];
+];

@@ -22,7 +22,7 @@ class InfoScreen extends StatelessWidget {
               '$infoLabel',
               style: TextStyle(
                 color: accentColor,
-                fontSize: stdFontSize,
+                fontSize: secondaryHeadingFontSize,
                 fontFamily: defaultFont
               ),
             ),
