@@ -1,17 +1,18 @@
 # All About Clubs
 
-## About
+## About :books:
 
-*All About Clubs* is an app to list football clubs and their respective net worth and number of achieved European titles.
+*All About Clubs* is an app to list football clubs and their respective net worth and number of achieved European titles. This app was a hiring project by All About Apps, an Austrian company I applied to for the position as a Flutter app developer. At the time, I didn't get the job. Now, however, I hope this coding project might help other people who want to learn more about Flutter and how to work with JSON APIs. Explore, download, and enjoy. Tried and tested on Android 6 and Android 10. Development time: 8 hours.
 
-## BUILDING
+## Download :inbox_tray:
 
-- Certificates need to be placed into `android/app` in the form of a file called `key.jks`.
-- The password of `key.jks` needs to be filled out  in `android/app/key.properties`.
-- `flutter pub get` needs to be run.
-- To make a build, `flutter build apk` needs to be run.
+- Version 1.0.0: [Download]() (17.4 MB)
 
-## Note
+## Building :hammer:
 
-- Tried and tested on Android 6 and Android 10.
-- Development time: 8 hours.
+
+
+## Note :scroll:
+
+- *All About Clubs* by Alexander Abraham a.k.a. :black_heart: *The Black Unicorn* :unicorn:
+- licensed under the MIT license
