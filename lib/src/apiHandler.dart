@@ -31,19 +31,7 @@ class APIStorage {
     }
   }
   Future<dynamic> readCounter() async {
-    Map<String,dynamic> resultMap = {'noConnection':[
-      'No Internet!',
-      'No Internet!',
-      'No Internet!',
-      'No Internet!'
-    ]};
-    try {
       final file = await _localFile;
-      String contents = file.readAsStringSync();
-      var resultmap = json.decode(contents);
-      return resultmap;
-    } catch (e) {
-      return resultMap;
-    }
+      return json.decode(file.readAsStringSync()).toList();
   }
 }

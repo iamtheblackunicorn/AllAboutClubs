@@ -1,3 +1,14 @@
 {
-  
+  "infoScreenLabel": "Info",
+  "postOverViewScreen": "Clubs",
+  "byLabel": "by",
+  "headBackLabel": "Got it!",
+  "readLabel": "Details",
+  "visitWebsite": "Official Website",
+  "worthLabel": "Million Euros",
+  "theClubLabel": "The Club",
+  "fromLabel": "from",
+  "worthLabelString": "has a worth of",
+  "achievmentLabel": "has been able to achieve",
+  "euroTitles": "European titles"
 }

@@ -17,7 +17,14 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget> [
-
+              Padding(
+                padding: EdgeInsets.all(stdPadding),
+                child: Image(
+                  image: AssetImage('graphics/background.png'),
+                  width: 100,
+                  height: 100
+                )
+              ),
               Padding(
                 padding: EdgeInsets.all(stdPadding),
                 child: new Text(

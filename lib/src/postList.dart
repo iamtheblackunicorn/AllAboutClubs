@@ -13,13 +13,14 @@ class PostOverview extends StatefulWidget {
   PostOverviewState createState() => PostOverviewState();
 }
 class PostOverviewState extends State<PostOverview> {
-  Map<String,dynamic> postDB;
+  List<dynamic> postDB;
   @override
   void initState() {
     super.initState();
-    widget.apistorage.readCounter().then((dynamic value) {
+    widget.apistorage.readCounter().then((var value) {
       setState(() {
-        postDB = json.decode(value);
+        postDB = value;
+
         if (postDB == null){
           postDB = defaultMap;
         } else {}
@@ -28,10 +29,11 @@ class PostOverviewState extends State<PostOverview> {
   }
   @override
   Widget build(BuildContext context) {
+    String worthLabel = AppLocalizations.of(context).worthLabel;
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: accentColor,
+          color: mainColor,
         ),
         title: new Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -52,29 +54,41 @@ class PostOverviewState extends State<PostOverview> {
       body:new ListView.builder(
         itemCount: postDB.length,
         itemBuilder: (context, index) {
-          String key = postDB.keys.elementAt(index);
-          String description = postDB[key][1];
+          Map<String, dynamic> currentClub = postDB[index];
+          String pictureUrl = currentClub['image'];
+          String netWorth = (currentClub['value']).toString();
+          String clubCountry = currentClub['country'];
+          String clubName = currentClub['name'];
+
           return new SizedBox(width: stdWidth, child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(stdRounding)
             ),
-            color: accentColor,
+            color: mainColor,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 new Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
+                    new Padding(
+                      padding: EdgeInsets.all(stdPadding),
+                      child:new Image.network(
+                        pictureUrl,
+                        height: 150,
+                        width: 150,
+                      )
+                    ),
                     new Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         new Padding(
                           padding: EdgeInsets.all(cardPadding),
                           child: Text(
-                            '$key',
+                            '$clubName',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              color: mainColor,
+                              color: accentColor,
                               fontWeight: FontWeight.bold,
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
@@ -84,11 +98,22 @@ class PostOverviewState extends State<PostOverview> {
                         new Padding(
                           padding: EdgeInsets.all(cardPadding),
                           child: Text(
-                            '$description',
+                            '$clubCountry',
                             textAlign: TextAlign.left,
-                            //softWrap: true,
                             style: TextStyle(
-                              color: mainColor,
+                              color: accentColor,
+                              fontSize: stdFontSize,
+                              fontFamily: defaultFont
+                            ),
+                          ),
+                        ),
+                        new Padding(
+                          padding: EdgeInsets.all(cardPadding),
+                          child: Text(
+                            '$netWorth $worthLabel',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: accentColor,
                               fontSize: stdFontSize,
                               fontFamily: defaultFont
                             ),
@@ -104,11 +129,11 @@ class PostOverviewState extends State<PostOverview> {
                     new Container(
                       margin: EdgeInsets.all(cardPadding),
                       child: new RaisedButton(
-                        color: mainColor,
+                        color: accentColor,
                         child: Text(
                           AppLocalizations.of(context).readLabel,
                           style: TextStyle(
-                            color: accentColor,
+                            color: mainColor,
                             fontSize: stdFontSize,
                             fontFamily: defaultFont
                           )
@@ -117,11 +142,12 @@ class PostOverviewState extends State<PostOverview> {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => PostDetailView(apistorage: APIStorage(), postDBKey: key)),
+                            MaterialPageRoute(builder: (context) => PostDetailView(apistorage: APIStorage(), currentClub: currentClub)),
                           );
                         }
                       )
                     ),
+
                     SizedBox(height: stdPadding)
                   ]
                 )

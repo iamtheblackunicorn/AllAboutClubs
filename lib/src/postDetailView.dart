@@ -9,31 +9,40 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 class PostDetailView extends StatefulWidget {
   final APIStorage apistorage;
-  final String postDBKey;
-  PostDetailView({Key key, @required this.apistorage, @required this.postDBKey}) : super(key: key);
+  final Map<String,dynamic> currentClub;
+  PostDetailView({Key key, @required this.apistorage, @required this.currentClub}) : super(key: key);
   @override
   PostDetailViewState createState() => PostDetailViewState();
 }
 class PostDetailViewState extends State<PostDetailView> {
-  Map<String,dynamic> postDB;
-  String key;
+  List<dynamic> postDB;
+  Map<String,dynamic> club;
   @override
   void initState() {
     super.initState();
     widget.apistorage.readCounter().then((dynamic value) {
       setState(() {
-        postDB = json.decode(value);
+        postDB = value;
       });
     });
     setState((){
-      key = widget.postDBKey;
+      club = widget.currentClub;
     });
   }
   @override
   Widget build(BuildContext context) {
-    String date = postDB[key][0].split(' ')[0].split('-').join('/');
-    String postUrl = postDB[key][3];
-    String postedOn = AppLocalizations.of(context).postedOnLabel;
+    String clubName = club['name'];
+    String clubPicture = club['image'];
+    String clubCountry = club['country'];
+    String netWorth = (club['value']).toString();
+    String europeanTitles = (club['european_titles']).toString();
+    String worthLabel = AppLocalizations.of(context).worthLabel;
+    String theClubLabel = AppLocalizations.of(context).theClubLabel;
+    String fromLabel = AppLocalizations.of(context).fromLabel;
+    String worthLabelString = AppLocalizations.of(context).worthLabelString;
+    String achievmentLabel = AppLocalizations.of(context).achievmentLabel;
+    String euroTitles = AppLocalizations.of(context).euroTitles;
+    String infoText = '$theClubLabel $clubName $fromLabel\n$clubCountry $worthLabelString $netWorth\n$worthLabel. $theClubLabel $achievmentLabel\n$europeanTitles $euroTitles.';
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
@@ -43,15 +52,15 @@ class PostDetailViewState extends State<PostDetailView> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Text(
-              '$key',
+              '$clubName',
               style: TextStyle(
-                color: accentColor,
+                color: mainColor,
                 fontSize: stdFontSize,
                 fontFamily: defaultFont
               ),
             ),
           ]),
-          backgroundColor: mainColor
+          backgroundColor: accentColor
         ),
         backgroundColor: mainColor,
         body: SingleChildScrollView(child: Center(
@@ -60,7 +69,7 @@ class PostDetailViewState extends State<PostDetailView> {
               new Stack(
                 children: <Widget>[
                   Image.network(
-                    '${postDB[key][4]}',
+                    '$clubPicture',
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -73,7 +82,7 @@ class PostDetailViewState extends State<PostDetailView> {
                       child: Padding(
                         padding: EdgeInsets.all(stdPadding),
                         child: Text(
-                          '$key',
+                          '$clubCountry',
                           style: TextStyle(
                             color: accentColor,
                             fontWeight: FontWeight.bold,
@@ -91,62 +100,20 @@ class PostDetailViewState extends State<PostDetailView> {
                 child: new Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-
                     SizedBox(height:stdSpacing),
+                    Padding(padding: EdgeInsets.all(stdPadding), child:
                     new Text(
-                      '$postedOn $date',
+                      '$infoText',
                       style: TextStyle(
-                        color: accentColor,
+                        color: tertiaryColor,
                         fontSize: stdFontSize,
                         fontFamily: defaultFont
                       )
-                    ),
-                    SizedBox(height:stdSpacing),
-                    Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(stdRounding)
-                      ),
-                      color: accentColor,
-                      child: Padding(padding: EdgeInsets.all(stdPadding), child:
-                    new Text(
-                      '${postDB[key][2]}',
-                      style: TextStyle(
-                        color: mainColor,
-                        fontSize: stdFontSize,
-                        fontFamily: defaultFont
-                      )
-                    )))
+                    ))
                   ]
 
                 )
               ),
-              SizedBox(height:stdSpacing),
-              new RaisedButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(extraRounding)
-                ),
-                color: accentColor,
-                padding: EdgeInsets.all(stdPadding),
-                child: new Text(
-                  AppLocalizations.of(context).visitWebsite,
-                  style: TextStyle(
-                    color: mainColor,
-                    fontSize: stdFontSize,
-                    fontFamily: defaultFont
-                  )
-                ),
-                onPressed: () async {
-                  try{
-                    await launch(postUrl);
-                  } catch (e) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PostOverview(apistorage: APIStorage())),
-                    );
-                  }
-                }
-              ),
-              SizedBox(height:stdSpacing),
             ]
           )
         ))
