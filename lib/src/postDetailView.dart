@@ -111,7 +111,7 @@ class PostDetailViewState extends State<PostDetailView> {
                                 child: Text(
                                   '$clubCountry',
                                   style: TextStyle(
-                                    color: tertiaryColor,
+                                    color: accentColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: postHeadingFontSize,
                                     fontFamily: defaultFont
