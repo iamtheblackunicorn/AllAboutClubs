@@ -136,6 +136,36 @@ class PostOverviewState extends State<PostOverview> {
                   ),
                 ]
               ),
+              actions: <Widget>[
+                  new Padding(
+                    padding: EdgeInsets.only(right: stdPadding),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.sync_sharp,
+                        color: mainColor,
+                        size: stdIconSize,
+                      ),
+                      onPressed: () {
+                        setState((){
+                          postDB = widget.apistorage.readCounter();
+                        });
+                      },
+                    ),
+                  ),
+                  new Padding(
+                    padding: EdgeInsets.only(right: stdPadding),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.unfold_more_outlined,
+                        color: mainColor,
+                        size: stdIconSize,
+                      ),
+                      onPressed: () {
+                        //changeSortedStatus(sorted);
+                      },
+                    ),
+                  )
+                ],
               backgroundColor: accentColor
             ),
             backgroundColor: mainColor,
@@ -165,8 +195,8 @@ class PostOverviewState extends State<PostOverview> {
                               padding: EdgeInsets.all(stdPadding),
                               child:new Image.network(
                                 pictureUrl,
-                                height: 75,
-                                width: 75,
+                                height: iconImageSize,
+                                width: iconImageSize,
                               )
                             ),
                             new Column(

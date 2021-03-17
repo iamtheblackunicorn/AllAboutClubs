@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'constants.dart';
 import 'apiHandler.dart';
 import 'postList.dart';
@@ -11,6 +12,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     String infoLabel = AppLocalizations.of(context).infoScreenLabel;
     String postsLabel = AppLocalizations.of(context).postOverViewScreen;
+    String quitLabel = AppLocalizations.of(context).quitLabel;
     return Scaffold(
       backgroundColor: mainColor,
       body: Center(
@@ -20,9 +22,9 @@ class HomeScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.all(stdPadding),
                 child: Image(
-                  image: AssetImage('assets/images/logo.png'),
-                  width: 250,
-                  height: 250
+                  image: AssetImage(logoPath),
+                  width: logoSize,
+                  height: logoSize
                 )
               ),
               Padding(
@@ -74,7 +76,23 @@ class HomeScreen extends StatelessWidget {
                   );
                 }
               ),
-
+              SizedBox(height: headingSpacing),
+              new RaisedButton(
+                color: accentColor,
+                padding: EdgeInsets.all(stdPadding),
+                child: new Text(
+                  '$quitLabel',
+                  style: new TextStyle(
+                    fontSize: secondaryHeadingFontSize,
+                    fontFamily: defaultFont,
+                    color: mainColor
+                  )
+                ),
+                onPressed: () {
+                  exit(0);
+                }
+              ),
+              SizedBox(height: headingSpacing),
             ]
           )
         )

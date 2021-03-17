@@ -11,5 +11,6 @@
   "worthLabelString": "hat einen Wert von",
   "achievmentLabel": "erzielte bisher",
   "euroTitles": "europaeische Titel.",
-  "errorLabel": "Fehler! Bitte\n versuche es spaeter erneut."
+  "errorLabel": "Fehler! Bitte\n versuche es spaeter erneut.",
+  "quitLabel": "Beenden"
 }

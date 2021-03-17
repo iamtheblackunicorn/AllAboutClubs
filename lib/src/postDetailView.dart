@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'postList.dart';
 import 'constants.dart';
 import 'apiHandler.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -34,7 +32,7 @@ class PostDetailViewState extends State<PostDetailView> {
           return  Scaffold(
             appBar:AppBar(
               iconTheme: IconThemeData(
-                color: accentColor,
+                color: mainColor,
               ),
               title: new Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -42,14 +40,14 @@ class PostDetailViewState extends State<PostDetailView> {
                   new Text(
                     AppLocalizations.of(context).postOverViewScreen,
                     style: TextStyle(
-                      color: accentColor,
+                      color: mainColor,
                       fontSize: stdFontSize,
                       fontFamily: defaultFont
                     ),
                   ),
                 ]
               ),
-              backgroundColor: mainColor
+              backgroundColor: accentColor
             ),
             backgroundColor: mainColor,
             body: Center(
@@ -72,7 +70,7 @@ class PostDetailViewState extends State<PostDetailView> {
             return  Scaffold(
               appBar:AppBar(
                 iconTheme: IconThemeData(
-                  color: accentColor,
+                  color: mainColor,
                 ),
                 title: new Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -80,14 +78,14 @@ class PostDetailViewState extends State<PostDetailView> {
                     new Text(
                       AppLocalizations.of(context).postOverViewScreen,
                       style: TextStyle(
-                        color: accentColor,
+                        color: mainColor,
                         fontSize: stdFontSize,
                         fontFamily: defaultFont
                       ),
                     ),
                   ]
                 ),
-                backgroundColor: mainColor
+                backgroundColor: accentColor
               ),
               backgroundColor: mainColor,
               body: Center(
@@ -148,6 +146,23 @@ class PostDetailViewState extends State<PostDetailView> {
                     ),
                   ]
                 ),
+                actions: <Widget>[
+                  new Padding(
+                    padding: EdgeInsets.only(right: stdPadding),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.sync_sharp,
+                        color: mainColor,
+                        size: stdIconSize,
+                      ),
+                      onPressed: () {
+                        setState((){
+                          postDB = widget.apistorage.readCounter();
+                        });
+                      },
+                    ),
+                  ),
+                ],
                 backgroundColor: accentColor
               ),
               backgroundColor: mainColor,
@@ -159,15 +174,15 @@ class PostDetailViewState extends State<PostDetailView> {
                         children: <Widget>[
                           Image.network(
                             '$clubPicture',
-                            height: 250,
+                            height: bannerImageSize,
                             width: double.infinity,
                             fit: BoxFit.cover,
                           ),
                           new Positioned(
-                            bottom: 0.2,
-                            left: 0.2,
+                            bottom: stackElevation,
+                            left: stackElevation,
                             child: Align(
-                              alignment: Alignment(-0.8, 0.8),
+                              alignment: Alignment((-1 * alignmentConstant), alignmentConstant),
                               child: Padding(
                                 padding: EdgeInsets.all(stdPadding),
                                 child: Text(

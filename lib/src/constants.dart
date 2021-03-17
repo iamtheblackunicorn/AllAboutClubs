@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'constants.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 Dio dio = new Dio();
 String apiUrl = 'https://public.allaboutapps.at/hiring/clubs.json';
 String appTitle = 'All About Clubs';
 String headingFont = 'Roboto';
 String defaultFont = 'Roboto';
+String logoPath = 'assets/images/logo.png';
 Color accentColor = Color(0xFF01C13B);
 Color mainColor = Color(0xFFFFFFFF);
 Color tertiaryColor = Color(0xFF000000);
@@ -23,3 +24,9 @@ double postHeadingFontSize = 25;
 double extraRounding = 25;
 double miscScreenSpacing = 250;
 double miscScreenIconSize = 150;
+double stdIconSize = 25;
+double stackElevation = 0.2;
+double bannerImageSize = 250;
+double alignmentConstant = 0.8;
+double iconImageSize = 75;
+double logoSize = 250;

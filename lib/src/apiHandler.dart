@@ -1,14 +1,8 @@
 import 'constants.dart';
 import 'package:dio/dio.dart';
-import 'package:path_provider/path_provider.dart';
 class APIStorage {
-  Future<String> get _localPath async {
-    final directory = await getApplicationDocumentsDirectory();
-    return directory.path;
-  }
   Future<List<dynamic>> get _localFile async {
     try {
-      final path = await _localPath;
       Response response = await dio.get(
         apiUrl,
         options: Options(
