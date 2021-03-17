@@ -1,6 +1,8 @@
 import 'sorting.dart';
 import 'constants.dart';
 import 'apiHandler.dart';
+import 'errorScreen.dart';
+import 'loadingScreen.dart';
 import 'postDetailView.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_animations/loading_animations.dart';
@@ -42,95 +44,15 @@ class PostOverviewState extends State<PostOverview> {
   @override
   Widget build(BuildContext context) {
     String worthLabel = AppLocalizations.of(context).worthLabel;
-    String errorString = AppLocalizations.of(context).errorLabel;
     return FutureBuilder<List<dynamic>> (
       future: postDB,
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting){
-          return  Scaffold(
-            appBar:AppBar(
-              iconTheme: IconThemeData(
-                color: mainColor,
-              ),
-              title: new Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  new Text(
-                    AppLocalizations.of(context).postOverViewScreen,
-                    style: TextStyle(
-                      color: mainColor,
-                      fontSize: secondaryHeadingFontSize,
-                      fontFamily: defaultFont
-                    ),
-                  ),
-                ]
-              ),
-              backgroundColor: accentColor
-            ),
-            backgroundColor: mainColor,
-            body: Center(
-              child: Column(
-                children: <Widget> [
-                  new SizedBox(
-                    height: miscScreenSpacing
-                  ),
-                  new LoadingBouncingGrid.circle(
-                    size: miscScreenIconSize,
-                    backgroundColor: accentColor,
-                  )
-                ]
-              )
-            )
-          );
+          return LoadingScreen();
         }
         else {
           if (snapshot.hasError) {
-            return  Scaffold(
-              appBar:AppBar(
-                iconTheme: IconThemeData(
-                  color: mainColor,
-                ),
-                title: new Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    new Text(
-                      AppLocalizations.of(context).postOverViewScreen,
-                      style: TextStyle(
-                        color: mainColor,
-                        fontSize: secondaryHeadingFontSize,
-                        fontFamily: defaultFont
-                      ),
-                    ),
-                  ]
-                ),
-                backgroundColor: accentColor
-              ),
-              backgroundColor: mainColor,
-              body: Center(
-                child: Column(
-                  children: <Widget> [
-                    new SizedBox(
-                      height: miscScreenSpacing
-                    ),
-                    new Icon(
-                      Icons.warning,
-                      color: accentColor,
-                      size: miscScreenIconSize,
-                    ),
-                    new Text(
-                      '$errorString',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: accentColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: stdFontSize,
-                        fontFamily: defaultFont
-                      ),
-                    )
-                  ]
-                )
-              )
-            );
+            return ErrorScreen();
           }
           else {
             List<dynamic> newData = snapshot.data;

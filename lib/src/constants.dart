@@ -30,3 +30,4 @@ double bannerImageSize = 250;
 double alignmentConstant = 0.8;
 double iconImageSize = 75;
 double logoSize = 250;
+double specialPaddingOne = 4;
