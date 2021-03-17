@@ -30,12 +30,12 @@ class PostOverviewState extends State<PostOverview> {
     if (value == false || value == null){
       setState((){
         sorted = true;
-        postDB = sortListByValues(postDB);
+        postDB = sortListByValues(postDB, 'value', true);
       });
     } else if (value == true){
       setState((){
         sorted = false;
-        postDB = widget.apistorage.readCounter();
+        postDB = sortListByValues(postDB, 'name', false);
       });
     }
   }
