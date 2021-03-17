@@ -46,6 +46,22 @@ $ flutter build apk
 
 You have now generated a release build of *All About Clubs*.
 
+## Changelog :scroll:
+
+### Version 1.0.0: The Overhaul
+
+- upload to GitHub
+- initial release
+
+### Version 1.1.0: The Smoothness Update
+
+- massive performance fixes
+- loading animation for fetching content
+- content-sorting and content-updating functionality
+- shrunk down the code to the bare minimum
+- modularity
+- speed improvements
+
 ## Note :scroll:
 
 - *All About Clubs* by Alexander Abraham a.k.a. :black_heart: *The Black Unicorn* :unicorn:
