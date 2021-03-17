@@ -24,7 +24,8 @@ List<dynamic> sortListByValue(List<dynamic> data, String mapKey, bool topToBotto
         var myMap = imList[u];
         if (myMap.containsKey(value) == true){
           var reversed = myMap.map((k, v) => MapEntry(v, k));
-          result.add(reversed);
+          Map<String, dynamic> resultMap = Map<String, dynamic>.from(reversed);
+          result.add(resultMap);
         } else {}
       }
     }
@@ -50,23 +51,24 @@ List<dynamic> sortListByValue(List<dynamic> data, String mapKey, bool topToBotto
         var myMap = imList[u];
         if (myMap.containsKey(value) == true){
           var reversed = myMap.map((k, v) => MapEntry(v, k));
-          result.add(reversed);
+          Map<String, dynamic> resultMap = Map<String, dynamic>.from(reversed);
+          result.add(resultMap);
         } else {}
       }
     }
   }
   return result;
 }
-Future<Map<String, dynamic>> makeFutureList(List<dynamic> myData) async {
+Future<List<dynamic>> makeFutureList(List<dynamic> myData) async {
   return myData;
 }
-Future<Map<String, dynamic>> sortListByValues(Future<List<dynamic>> myData, String key, boolHowToSort) async {
+Future<List<dynamic>> sortListByValues(Future<List<dynamic>> myData, String key, boolHowToSort) async {
   List<dynamic> result = [];
-  List<String, dynamic> input = await myData;
+  List<dynamic> input = await myData;
   if (boolHowToSort == true){
-    result = sortListByValue(myData, key, boolHowToSort);
+    result = sortListByValue(input, key, boolHowToSort);
   } else {
-    result = sortListByValue(myData, key, boolHowToSort);
+    result = sortListByValue(input, key, boolHowToSort);
   }
   return makeFutureList(result);
 }
