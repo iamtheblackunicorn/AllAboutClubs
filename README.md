@@ -14,6 +14,8 @@
 
 - Version 1.0.0: [Download](https://github.com/iamtheblackunicorn/AllAboutClubs/releases/download/v.1.0.0/AllAboutClubs-v.1.0.0-Release.apk) (17.4 MB)
 
+- Version 1.1.0: [Download](https://github.com/iamtheblackunicorn/AllAboutClubs/releases/download/v.1.1.0/AllAboutClubs-v.1.1.0-Release.apk) (17.4 MB)
+
 ## Building :hammer:
 
 Make sure that you have the following programs installed:

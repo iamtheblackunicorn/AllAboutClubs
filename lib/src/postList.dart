@@ -1,3 +1,4 @@
+import 'sorting.dart';
 import 'constants.dart';
 import 'apiHandler.dart';
 import 'postDetailView.dart';
@@ -24,6 +25,21 @@ class PostOverviewState extends State<PostOverview> {
     });
   }
   @override
+  void changeSortedStatus(bool value){
+    bool result = false;
+    if (value == false || value == null){
+      setState((){
+        sorted = true;
+        postDB = sortListByValues(postDB);
+      });
+    } else if (value == true){
+      setState((){
+        sorted = false;
+        postDB = widget.apistorage.readCounter();
+      });
+    }
+  }
+  @override
   Widget build(BuildContext context) {
     String worthLabel = AppLocalizations.of(context).worthLabel;
     String errorString = AppLocalizations.of(context).errorLabel;
@@ -43,7 +59,7 @@ class PostOverviewState extends State<PostOverview> {
                     AppLocalizations.of(context).postOverViewScreen,
                     style: TextStyle(
                       color: mainColor,
-                      fontSize: stdFontSize,
+                      fontSize: secondaryHeadingFontSize,
                       fontFamily: defaultFont
                     ),
                   ),
@@ -81,7 +97,7 @@ class PostOverviewState extends State<PostOverview> {
                       AppLocalizations.of(context).postOverViewScreen,
                       style: TextStyle(
                         color: mainColor,
-                        fontSize: stdFontSize,
+                        fontSize: secondaryHeadingFontSize,
                         fontFamily: defaultFont
                       ),
                     ),
@@ -161,7 +177,7 @@ class PostOverviewState extends State<PostOverview> {
                         size: stdIconSize,
                       ),
                       onPressed: () {
-                        //changeSortedStatus(sorted);
+                        changeSortedStatus(sorted);
                       },
                     ),
                   )

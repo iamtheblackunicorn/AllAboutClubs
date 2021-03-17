@@ -41,7 +41,7 @@ class PostDetailViewState extends State<PostDetailView> {
                     AppLocalizations.of(context).postOverViewScreen,
                     style: TextStyle(
                       color: mainColor,
-                      fontSize: stdFontSize,
+                      fontSize: secondaryHeadingFontSize,
                       fontFamily: defaultFont
                     ),
                   ),
@@ -79,7 +79,7 @@ class PostDetailViewState extends State<PostDetailView> {
                       AppLocalizations.of(context).postOverViewScreen,
                       style: TextStyle(
                         color: mainColor,
-                        fontSize: stdFontSize,
+                        fontSize: secondaryHeadingFontSize,
                         fontFamily: defaultFont
                       ),
                     ),
