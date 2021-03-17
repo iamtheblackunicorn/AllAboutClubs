@@ -1,17 +1,12 @@
-import 'dart:io';
-import 'dart:math';
-import 'dart:async';
-import 'dart:convert';
 import 'constants.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
-
 class APIStorage {
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
     return directory.path;
   }
-  Future<File> get _localFile async {
+  Future<List<dynamic>> get _localFile async {
     try {
       final path = await _localPath;
       Response response = await dio.get(
@@ -22,16 +17,21 @@ class APIStorage {
           validateStatus: (status) { return status < 500; }
         ),
       );
-      String fullPath = '$path/api.json';
-      File(fullPath).writeAsStringSync(json.encode(response.data).toString());
-      return File('$path/api.json');
+      return response.data;
     } catch (e) {
-      final path = await _localPath;
-      return File('$path/api.json');
+      Response response = await dio.get(
+        apiUrl,
+        options: Options(
+          responseType: ResponseType.json,
+          followRedirects: true,
+          validateStatus: (status) { return status < 500; }
+        ),
+      );
+      return response.data;
     }
   }
-  Future<dynamic> readCounter() async {
-      final file = await _localFile;
-      return json.decode(file.readAsStringSync()).toList();
+  Future<List<dynamic>> readCounter() async {
+    Future<List<dynamic>> data = _localFile;
+    return data;
   }
 }

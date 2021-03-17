@@ -21,9 +21,5 @@ double cardPadding = 20;
 double stdWidth = 200;
 double postHeadingFontSize = 25;
 double extraRounding = 25;
-List<dynamic> defaultMap = [
-    'API Fail.',
-    'Could not fetch the API.',
-    'There was an error fetching the API!',
-    'https://blckunicorn.art/assets/images/logo/logo.svg'
-];
+double miscScreenSpacing = 250;
+double miscScreenIconSize = 150;

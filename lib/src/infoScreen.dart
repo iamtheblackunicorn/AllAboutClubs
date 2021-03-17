@@ -13,7 +13,7 @@ class InfoScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(
-          color: accentColor,
+          color: mainColor,
         ),
         title: new Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -21,13 +21,13 @@ class InfoScreen extends StatelessWidget {
             new Text(
               '$infoLabel',
               style: TextStyle(
-                color: accentColor,
+                color: mainColor,
                 fontSize: secondaryHeadingFontSize,
                 fontFamily: defaultFont
               ),
             ),
           ]),
-          backgroundColor: mainColor
+          backgroundColor: accentColor
         ),
       backgroundColor: mainColor,
       body: Center(
@@ -58,7 +58,7 @@ class InfoScreen extends StatelessWidget {
                     new Padding(
                       padding: EdgeInsets.all(stdRounding),
                       child: new Text(
-                        '$appTitle $byLabel Alexander Abraham\na.k.a. The Black Unicorn',
+                        '$appTitle $byLabel Alexander Abraham\na.k.a. The Black Unicorn.',
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: defaultFont,
