@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/iamtheblackunicorn/AllAboutClubs/raw/main/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"/>
+ <img src="https://github.com/iamtheblackunicorn/AllAboutClubs/raw/main/assets/images/banner.png"/>
 </p>
 
 # All About Clubs :soccer:
