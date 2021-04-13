@@ -64,5 +64,6 @@ You have now generated a release build of *All About Clubs*.
 
 ## Note :scroll:
 
-- *All About Clubs* by Alexander Abraham a.k.a. :black_heart: *The Black Unicorn* :unicorn:
-- licensed under the MIT license
+- *All About Clubs :eagle:*, a *Black Unicorn Labs :unicorn:* project.
+- *All About Clubs :eagle:* by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
+- Licensed under the MIT license.
