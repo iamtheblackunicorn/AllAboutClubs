@@ -20,7 +20,7 @@
 
 ## Building :hammer:
 
-Make sure that you have the following programs installed:
+Make sure that you have the following programmes installed:
 
 - Flutter SDK
 - Dart SDK
@@ -34,10 +34,10 @@ Make sure that you have the following programs installed:
 After you have installed these, run this command to generate a keystore for the app.
 
 ```bash
-keytool -genkey -v -keystore key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
+$ keytool -genkey -v -keystore key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
 ```
 
-After having done that, move the keystore to `android/app` and fill in the fields for the keystore password in the file `android/app/key.properties`.
+After having done that, move the generated Java keystore to `android/app` and fill in the fields for the keystore password in the file `android/app/key.properties`.
 
 Finally, run these commands:
 
